@@ -31,3 +31,41 @@ message: 'Enter the shape color (color keyword or hexadecimal number):'
 };
 
 
+//function to generate SVG string based on user input
+const generateSVG = (data) => {
+    //construct SVG string based on user input
+    const svg = `
+    <svg width="300" height="200">
+    <rect width="100%" height="100%" fill="${data.shapeColor}" />
+    <text x="50%" y="50%" fill="${data.textColor}" text-anchor="middle" alignment-baseline="middle" font-size="48">${data.text}</text> 
+    </svg> 
+     `;
+     return svg;
+};
+
+//function to write SVG string to file
+ const writeToFile = (fileName, data) => {
+    fs.writeFile(fileName, data, (err) => {
+    if (err) {
+      console.error('Error writing SVG file:', err);
+    } else {
+        console.log('Generated logo.svg');
+    }
+});
+};
+
+// Main function to run the application
+const init = async () => {
+    try {
+        //prompt user for input
+        const userInput = await promptUser();
+
+        //Generate SVG based on user input
+        const svgString = generateSVG(userInput);
+
+        //Write SVG to file 
+        writeToFile('logo.svg', svgString);
+    } catch (err) {
+        console.error('An error occured:', err);
+    }
+};
