@@ -69,3 +69,6 @@ const init = async () => {
         console.error('An error occured:', err);
     }
 };
+
+// Initialize the application
+init();
