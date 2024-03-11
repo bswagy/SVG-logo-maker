@@ -35,6 +35,8 @@ message: 'Enter the shape color (color keyword or hexadecimal number):'
 const generateSVG = (data) => {
     //construct SVG string based on user input
     const svg = `
+    <svg version="1.1" width="300" height="200"
+    xmlns="http://www.w3.org/2000/svg">
     <svg width="300" height="200">
     <rect width="100%" height="100%" fill="${data.shapeColor}" />
     <text x="50%" y="50%" fill="${data.textColor}" text-anchor="middle" alignment-baseline="middle" font-size="48">${data.text}</text> 
