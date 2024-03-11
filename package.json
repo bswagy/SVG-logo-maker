@@ -1,17 +1,21 @@
 {
+  "type": "module",  
   "name": "svg-logo-maker",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A tool to generate SVG logos",
+  "main": "index.mjs",
   "directories": {
     "example": "example",
     "lib": "lib"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.mjs"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Brian Aguilar",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.15"
+  }
 }
