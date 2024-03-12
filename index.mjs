@@ -31,18 +31,37 @@ message: 'Enter the shape color (color keyword or hexadecimal number):'
 };
 
 
-//function to generate SVG string based on user input
+
+  // Function to generate SVG string based on user input
 const generateSVG = (data) => {
-    //construct SVG string based on user input
-    const svg = `
-    <svg version="1.1" width="300" height="200"
-    xmlns="http://www.w3.org/2000/svg">
-    <svg width="300" height="200">
-    <rect width="100%" height="100%" fill="${data.shapeColor}" />
-    <text x="50%" y="50%" fill="${data.textColor}" text-anchor="middle" alignment-baseline="middle" font-size="48">${data.text}</text> 
-    </svg> 
-     `;
-     return svg;
+    let svg;
+    switch (data.shape) {
+        case 'circle':
+            svg = `
+                <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="150" cy="100" r="80" fill="${data.shapeColor}" />
+                    <text x="50%" y="50%" fill="${data.textColor}" text-anchor="middle" alignment-baseline="middle" font-size="48">${data.text}</text>
+                </svg>`;
+            break;
+        case 'triangle':
+            svg = `
+                <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="150,20 250,180 50,180" fill="${data.shapeColor}" />
+                    <text x="50%" y="50%" fill="${data.textColor}" text-anchor="middle" alignment-baseline="middle" font-size="48">${data.text}</text>
+                </svg>`;
+            break;
+        case 'square':
+            svg = `
+                <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="${data.shapeColor}" />
+                    <text x="50%" y="50%" fill="${data.textColor}" text-anchor="middle" alignment-baseline="middle" font-size="48">${data.text}</text>
+                </svg>`;
+            break;
+        default:
+            throw new Error('Invalid shape');
+    }
+    return svg;
+
 };
 
 //function to write SVG string to file
