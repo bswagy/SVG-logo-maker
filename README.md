@@ -14,8 +14,8 @@ Javascript,GIT,npm i,node
 ---
 ## Learning Points
 
-* Understanding the process of testing the generated SVG file by opening it in a browser, such as displaying a 300x200 pixel image.
-* Providing feedback to the user upon completion, such as printing a message indicating that the SVG file has been generated successfully.
+* Understanding the process of testing the generated SVG file by opening it in a browser, such as displaying a 300x200 px image.
+* Providing feedback to the user, such as printing a message indicating that the SVG file has been generated successfully.
 *  Understanding how to develop command-line applications that interact with users.                                               
 
 
